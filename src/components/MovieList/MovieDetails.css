@@ -1,0 +1,10 @@
+.movie_details_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+}
+.movie_details_description{
+    width: 450px;
+    font-size: 20px;
+}
