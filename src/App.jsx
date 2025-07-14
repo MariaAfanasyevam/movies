@@ -4,6 +4,7 @@ import MovieList from './components/MovieList/MovieList';
 import MovieDetails from './components/MovieList/MovieDetails';
 import Fire from './assets/fire.png';
 import Star from './assets/glowing-star.png';
+import './App.css';
 
 function App() {
     return (
