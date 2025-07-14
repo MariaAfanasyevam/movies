@@ -21,7 +21,7 @@
 
 1. Клонируйте репозиторий:
 
-git clone https://github.com/yourusername/your-repo.git
+git clone 
 cd your-repo
 Установите зависимости:
 
