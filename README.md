@@ -1,12 +1,40 @@
-# React + Vite
+# React Movie Catalog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение для просмотра фильмов с возможностью фильтрации по рейтингу и году выпуска, сортировкой и добавлением фильмов в избранное.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Основные возможности
 
-## Expanding the ESLint configuration
+- Получение списка фильмов из TMDB API
+- Фильтрация по рейтингу (например, от 6 до 8)
+- Фильтрация по периоду выпуска (с шагом 5 лет)
+- Сортировка по дате релиза и рейтингу (по возрастанию/убыванию)
+- Добавление и удаление фильмов из избранного (сохранение в Local Storage)
+- Отображение подробностей о фильме на отдельной странице
+- Использование React Router для навигации
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+---
+
+## Установка и запуск
+
+1. Клонируйте репозиторий:
+
+git clone https://github.com/yourusername/your-repo.git
+cd your-repo
+Установите зависимости:
+
+npm install
+Запустите проект:
+npm start
+
+Как использовать
+На главной странице отображается список популярных фильмов
+
+Используйте фильтры рейтинга и года для выбора фильмов
+
+Нажмите на иконку сердца, чтобы добавить или убрать фильм из избранного
+
+Клик по карточке фильма откроет страницу с подробной информацией
+
