@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 const Navbar = () => {
     return (
         <nav className='navbar'>
-            <Link to="/movies"><h1>Movies</h1></Link>
+            <Link to="/"><h1>Movies</h1></Link>
 
             <div className='navbar_links'>
                 <a href='#popular'>
