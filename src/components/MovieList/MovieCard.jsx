@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./MovieCard.css";
 import Star from "../../assets/star.png";
+import Heart from "../../assets/heartIcon.svg";
+import FilledHeart from "../../assets/filledHeartIcon.svg";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie,isFavorite, onToggleFavorite }) => {
     const [genres, setGenres] = useState([]);
     useEffect(() => {
         const options = {
@@ -53,6 +55,20 @@ const MovieCard = ({ movie }) => {
                 <div>
                     <p className="genre_name">{genreNames}</p>
                 </div>
+
+                    <p className='align_center'>
+                        <img
+                            src={isFavorite ? FilledHeart : Heart}
+                            alt="heart"
+                            className='card_emoji'
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                onToggleFavorite();
+                            }}
+                        />
+                    </p>
+
             </div>
         </Link>
     );

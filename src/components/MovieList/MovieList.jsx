@@ -12,6 +12,7 @@ const MovieList = ({ type, title, emoji }) => {
     const [filterYearMovies, setFilterYearMovies] = useState([]);
     const [minRating, setMinRating] = useState(0);
     const [minYear, setMinYear] = useState(0);
+
     const [sort, setSort] = useState({
         by: "default",
         order: "asc",
@@ -20,11 +21,19 @@ const MovieList = ({ type, title, emoji }) => {
     useEffect(() => {
         fetchMovies();
     }, []);
-
+    const [favorites, setFavorites] = useState(() => {
+        try {
+            const stored = localStorage.getItem('favorites');
+            const parsed = stored ? JSON.parse(stored) : [];
+            return Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+            console.error('Ошибка при чтении избранного из localStorage', error);
+            return [];
+        }
+    });
     useEffect(() => {
         let result = movies;
 
-        // 🔹 Фильтр по рейтингу
         if (minRating > 0) {
             result = result.filter(
                 (movie) =>
@@ -33,7 +42,6 @@ const MovieList = ({ type, title, emoji }) => {
             );
         }
 
-        // 🔹 Фильтр по году
         if (minYear > 0) {
             result = result.filter((movie) => {
                 if (!movie.release_date) return false;
@@ -42,7 +50,6 @@ const MovieList = ({ type, title, emoji }) => {
             });
         }
 
-        // 🔹 Сортировка
         if (sort.by !== "default") {
             result = _.orderBy(result, [sort.by], [sort.order]);
         }
@@ -73,6 +80,20 @@ const MovieList = ({ type, title, emoji }) => {
         const { name, value } = e.target;
         setSort((prev) => ({ ...prev, [name]: value }));
     };
+    const toggleFavorite = (movie) => {
+        let updatedFavorites;
+
+        const isFavorite = favorites.some((fav) => fav.id === movie.id);
+
+        if (isFavorite) {
+            updatedFavorites = favorites.filter((fav) => fav.id !== movie.id);
+        } else {
+            updatedFavorites = [...favorites, movie];
+        }
+
+        setFavorites(updatedFavorites);
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    };
 
     return (
         <section className="movie_list" id={type}>
@@ -81,7 +102,7 @@ const MovieList = ({ type, title, emoji }) => {
                     {title}{" "}
                     <img src={emoji} alt={`${emoji} icon`} className="navbar_emoji" />
                 </h2>
-<div className="filter_blick">
+                <div className="filter_blick">
                 <div className="align_center movie_list_fs">
                     <FilterGroup
                         minRating={minRating}
@@ -123,7 +144,11 @@ const MovieList = ({ type, title, emoji }) => {
 
             <div className="movie_cards">
                 {filterMovies.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
+                    <MovieCard
+                        key={movie.id}
+                        movie={movie}
+                        isFavorite={favorites.some((fav) => fav.id === movie.id)}
+                        onToggleFavorite={() => toggleFavorite(movie)} />
                 ))}
             </div>
         </section>
