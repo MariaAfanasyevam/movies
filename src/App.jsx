@@ -12,7 +12,7 @@ function App() {
                 <Navbar />
                 <Routes>
                     <Route
-                        path="/movies"
+                        path="/"
                         element={
                             <>
                                 <MovieList type="popular" title="Popular" emoji={Fire} />
