@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import MovieList from './components/MovieList/MovieList';
 import MovieDetails from './components/MovieList/MovieDetails';
 import Fire from './assets/fire.png';
 import Star from './assets/glowing-star.png';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
