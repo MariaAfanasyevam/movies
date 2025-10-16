@@ -7,6 +7,10 @@
 .movie_list_heading {
     font-size: 26px;
     color: #f6df1b;
+    @media( max-width: 600px){
+        font-size: 20px;
+
+    }
 }
 
 .movie_filter {
@@ -35,6 +39,10 @@
     height: 30px;
     padding: 0 5px;
     margin: 0 10px;
+    @media( max-width: 600px){
+        font-size: 14px;
+
+    }
 }
 
 .movie_cards {

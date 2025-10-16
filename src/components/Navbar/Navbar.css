@@ -4,6 +4,11 @@
     justify-content: space-between;
     padding: 0 30px;
     border-bottom: 1px solid #e6e6e6;
+    h1{
+        @media( max-width: 600px){
+            font-size: 20px;
+        }
+    }
 }
 
 .navbar > h1 {
@@ -24,10 +29,21 @@
     color: var(--body_color);
     text-decoration: none;
     padding: 0 15px;
+    @media( max-width: 600px){
+        font-size: 14px;
+
+    }
 }
 
 .navbar_emoji {
     width: 25px;
     height: 25px;
     margin-left: 7px;
+    @media( max-width: 600px){
+        width: 15px;
+    }
+}
+.navbar_logo {
+    text-decoration: none;
+    color: inherit;
 }

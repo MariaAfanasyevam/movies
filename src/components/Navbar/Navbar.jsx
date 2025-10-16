@@ -9,14 +9,16 @@ import {Link} from "react-router-dom";
 const Navbar = () => {
     return (
         <nav className='navbar'>
-            <Link to="/"><h1>Movies</h1></Link>
+            <Link to="/" className="navbar_logo">
+                <h1>Каталог фильмов</h1>
+            </Link>
 
             <div className='navbar_links'>
-                <a href='#popular'>
+                <a href='/#popular'>
                     Popular{" "}
                     <img src={Fire} alt='fire emoji' className='navbar_emoji' />
                 </a>
-                <a href='#top_rated'>
+                <a href='/#top_rated'>
                     Top Rated{" "}
                     <img src={Star} alt='star emoji' className='navbar_emoji' />
                 </a>
