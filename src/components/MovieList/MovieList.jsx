@@ -109,11 +109,7 @@ const MovieList = ({ type, title, emoji }) => {
                         onRatingClick={handleFilter}
                         ratings={[8, 7, 6]}
                     />
-                    <FilterYearGroup
-                        minYear={minYear}
-                        onYearClick={handleYearFilter}
-                        years={[2010, 2005, 2000, 1995, 1990]}
-                    />
+
                 </div>
                 <div className="align_center movie_list_fs">
                     <select
